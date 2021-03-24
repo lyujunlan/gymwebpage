@@ -1,0 +1,487 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Services</title>
+<!-- Bootstrap -->
+<link href="css/bootstrap.min.css" rel='stylesheet' type='text/css' />
+<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<link href="css/blue.css" rel="stylesheet" type="text/css" media="all" />
+<!----font-Awesome----->
+   	<link rel="stylesheet" href="fonts/css/font-awesome.min.css">
+<!----font-Awesome----->
+<!-- start plugins -->
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<!-- Owl Carousel Assets -->
+<link href="css/owl.carousel.css" rel="stylesheet">
+<script src="js/owl.carousel.js"></script>
+		<script>
+			$(document).ready(function() {
+
+				$("#owl-demo").owlCarousel({
+					items : 4,
+					lazyLoad : true,
+					autoPlay : true,
+					navigation : true,
+					navigationText : ["", ""],
+					rewindNav : false,
+					scrollPerPage : false,
+					pagination : false,
+					paginationNumbers : false,
+				});
+
+			});
+		</script>
+		<!-- //Owl Carousel Assets -->
+<!-- start circle -->
+<script>
+(function($){
+	$.fn.percentPie = function(options){
+
+		var settings = $.extend({
+			width: 100,
+			trackColor: "EEEEEE",
+			barColor: "E2534B",
+			barWeight: 30,
+			startPercent: 0,
+			endPercent: 1,
+			fps: 60
+		}, options);
+
+		this.css({
+			width: settings.width,
+			height: settings.width
+		});
+
+		var	that = this,
+			hoverPolice = false,
+			canvasWidth = settings.width,
+			canvasHeight = canvasWidth,
+			id = $('canvas').length,
+			canvasElement = $('<canvas id="'+ id +'" width="' + canvasWidth + '" height="' + canvasHeight + '"></canvas>'),
+			canvas = canvasElement.get(0).getContext("2d"),
+			centerX = canvasWidth/2,
+			centerY = canvasHeight/2,
+			radius = settings.width/2 - settings.barWeight/2;
+			counterClockwise = false,
+			fps = 1000 / settings.fps,
+			update = .01;
+			this.angle = settings.startPercent;
+
+		this.drawArc = function(startAngle, percentFilled, color){
+			var drawingArc = true;
+			canvas.beginPath();
+			canvas.arc(centerX, centerY, radius, (Math.PI/180)*(startAngle * 360 - 90), (Math.PI/180)*(percentFilled * 360 - 90), counterClockwise);
+			canvas.strokeStyle = color;
+			canvas.lineWidth = settings.barWeight;
+			canvas.stroke();
+			drawingArc = false;
+		}
+
+		this.fillChart = function(stop){
+			var loop = setInterval(function(){
+				hoverPolice = true;
+				canvas.clearRect(0, 0, canvasWidth, canvasHeight);
+
+				that.drawArc(0, 360, settings.trackColor);
+				that.angle += update;
+				that.drawArc(settings.startPercent, that.angle, settings.barColor);
+
+				if(that.angle > stop){
+					clearInterval(loop);
+					hoverPolice = false;
+				}
+			}, fps);
+		}
+
+		this.mouseover(function(){
+			if(hoverPolice == false){
+				that.angle = settings.startPercent;
+				that.fillChart(settings.endPercent);
+			}
+		});
+
+		this.fillChart(settings.endPercent);
+		this.append(canvasElement);
+		return this;
+	}
+}(jQuery));
+
+$(document).ready(function() {
+
+	$('.google').percentPie({
+		width: 100,
+		trackColor: "E2534B",
+		barColor: "76C7C0",
+		barWeight: 20,
+		endPercent: .9,
+		fps: 60
+	});
+  
+  $('.moz').percentPie({
+		width: 100,
+		trackColor: "E2534B",
+		barColor: "76C7C0",
+		barWeight: 20,
+		endPercent: .75,
+		fps: 60
+	});
+  
+  $('.safari').percentPie({
+		width: 100,
+		trackColor: "E2534B",
+		barColor: "#76C7C0",
+		barWeight: 20,
+		endPercent: .5,
+		fps: 60
+	});
+    
+});
+</script>
+</head>
+<body>
+<div class="header_bg">
+<div class="container">
+	<div class="header">
+		<div class="logo">
+			<a href="index.html"><img src="images/logo.png" alt=""/></a>
+		</div>
+		<div class="h_menu">
+		<a id="touch-menu" class="mobile-menu" href="#">Menu</a>
+		<nav>
+		<ul class="menu list-unstyled">
+			<li><a href="index.html">HOME</a></li>
+			<li><a href="programme.html">PROGRAMME</a></li>
+			<li class="activate"><a href="membership.html">MEMBERSHIP</a></li>
+			<li><a href="contact.html">CONTACT</a></li>
+		</ul>
+		</nav>
+		<script src="js/menu.js" type="text/javascript"></script>
+		</div>
+		<div class="clearfix"></div>
+	</div>
+</div>
+</div>
+<div class="main_bg"><!-- start main -->
+<div class="container">
+	<div class="main_grid1">
+		<h3 class="style pull-left">JOIN OUR MEMBERSHIP</h3>
+		<ol class="breadcrumb pull-right">
+		  <li><a href="index.html">Home</a></li>
+		  <li class="active">Membership</li>
+		</ol>
+		<div class="clearfix"></div>
+	</div>
+</div>
+</div>
+<div class="main_btm1"><!-- start main_btm1 -->
+<div class="container">
+	<div class="main about span_of_3">
+		<h3>Why join Iron Fitness Singapore?  </h3>
+		<p class="para">If you’re looking to join a supportive, welcoming gym community, with people of all fitness levels who want to see you succeed, you’ve come to the right place. Achieving fitness goals is not easy. Knowing how to exercise, finding time to exercise, and keeping motivated are common challenges. Getting yourself to the gym may feel much more overwhelming than actually working towards your goal. To lose weight or increase fitness levels, it’s time to try something different. Iron Fitness can help you achieve the results you want! </p>
+		<div class="col-md-5">
+			<h4>Our strength</h4>
+			<ul class="list-unstyled nav_list">
+				<li><a href="#"> Iron Fitness builds on its namesek by offering professional-grade equipment.</a></li>
+				<li><a href="#"> Our equipment caters to all fitness disciplines. </a></li>
+				<li><a href="#"> Our 3,600 sq ft facility is equipped with top equipment sourced from the USA. </a></li>
+				<li><a href="#"> We also provide body composition analyzer </a></li>
+				<li><a href="#"> Provide private changing rooms and showers </a></li>
+				<li><a href="#"> A nutritious food and drinks bar </a></li>
+				<li><a href="#"> And we have more to come in future! </a></li>
+			</ul>
+		</div>	
+		<div class="col-md-5">
+			<h4>What our client's say ?</h4>
+			<div class="clients1">
+				<p>“I absolutely love the challenging workouts and being pushed in a way I couldn’t be in faceless gym.” <br> “For the first time I remember I am actually enjoying training.” <br> “My training is now more focused and more productive” <br> "I absolutely love training with Iron Fitness Singapore. My overall mental and physical wellbeing has improved hugely over the last 3 years." <br> "Coach Kelvin is great at motivating and encouraging and has changed my outlook on training!" </p>
+			</div>
+		</div>
+		<div class="col-md-2">
+				<!-- start circle -->
+				<ul class="list-unstyled circle_list">
+					<li>
+						<div class="safari chart">
+						  <div class="tag">100%</div>
+						</div>			
+						<h4 class="style">&nbsp;&nbsp;&nbsp;Satisfied </h4>					
+					</li>
+				</ul>
+				<!-- end circle -->
+				</ul>
+		</div>	
+		<div class="clearfix"></div>
+	</div>
+</div>
+</div>	
+<div class="main_btm2"><!-- start main_btm2 -->
+<div class="container">
+<div class="pricing2"><!-- start pricing2 -->
+		<h5>What's your plan?</h5>
+		<h6>Find the plan that best fits you and your life.</h6>
+		<ul class="pricing_table list-unstyled">
+		<li class="price_block">
+			<h3>4 Times Trial Card</h3>
+			<div class="price">
+				<div class="price_figure">
+					<span class="price_number">$79</span>
+				</div>
+			</div>
+			<ul class="features list-unstyled">
+				<li>4 times pay-per-use</li>
+				<li>Limit to 1 client only</li>
+				<li>2 HIIT Class Add-Ons</li>
+				<li>Free Access Key</li>
+				<li>Free Goodies</li>
+				<li>24/7 Email support</li>
+			</ul>
+			<div class="pricing_btn">
+				<a class="action_button popup-with-zoom-anim" href="contact.html">Contact Us Now</a>
+			</div>
+		</li>
+		<li class="price_block">
+			<h3> 1 Month Membership </h3>
+			<div class="price">
+				<div class="price_figure">
+					<span class="price_number">$129</span>
+					<span class="price_tenure">per month</span>
+				</div>
+			</div>
+			<ul class="features list-unstyled">
+				<li>Unlimited Access to the Gym</li>
+				<li>Limit to 1 client only</li>
+				<li>4 HIIT Class Add-ons</li>
+				<li>Free Access Key</li>
+				<li>Free Goodies</li>
+				<li>24/7 Email support</li>
+			</ul>
+			<div class="pricing_btn">
+				<a class="action_button popup-with-zoom-anim" href="contact.html">Contact Us Now</a>
+			</div>
+		</li>
+		<li class="price_block">
+			<h3>6 Months Premier Card</h3>
+			<div class="price">
+				<div class="price_figure">
+					<span class="price_number">$599</span>
+					<span class="price_tenure">$99.8 per month</span>
+				</div>
+			</div>
+			<ul class="features list-unstyled">
+				<li>Unlimited Access to the Gym</li>
+				<li>Limit to 2 clients, share with your friend</li>
+				<li>16 HIIT Class Add-ons</li>
+				<li>Free Access Key</li>
+				<li>Free Goodies</li>
+				<li>Free Fitness assessment</li>
+			</ul>
+			<div class="pricing_btn">
+				<a class="action_button popup-with-zoom-anim" href="#contact.html">Contact Us Now</a>
+			</div>
+		</li>
+		<li class="price_block">
+			<h3>1 Year Platinum Card</h3>
+			<div class="price">
+				<div class="price_figure">
+					<span class="price_number">$999</span>
+					<span class="price_tenure">$83.25 per month</span>
+				</div>
+			</div>
+			<ul class="features list-unstyled">
+				<li>Unlimited Access to the Gym</li>
+				<li>Limit to 3 clients,share with your family!</li>
+				<li>30 HIIT/ Yoga Class Add-ons</li>
+				<li>Free Access Key and Goodies</li>
+				<li>Free Fitness assessment</li>
+				<li>Free Nutrition plan</li>
+			</ul>
+			<div class="pricing_btn">
+				<a class="action_button popup-with-zoom-anim" href="#contact.html">Contact Us Now</a>
+			</div>
+		</li>
+		<div class="clearfix"></div>
+	</ul>
+	<ul class="skeleton pricing_table list-unstyled" style="margin-top: 100px; overflow: hidden;">
+		<li class="label" style="margin: 0 none;">ul.pricing_table</li>
+		<li class="price_block">
+			<span class="label">li.price_block</span>
+			<h3><span class="label">h3</span></h3>
+			<div class="price">
+				<span class="label">div.price</span>
+				<div class="price_figure">
+					<span class="label">div.price_figure</span>
+					<span class="price_number">
+						<span class="label">span.price_number</span>
+					</span>
+					<span class="price_tenure">
+						<span class="label">span.price_tenure</span>
+					</span>
+				</div>
+			</div>
+			<ul class="features list-unstyled">
+				<li class="label">ul.features</li>
+				<br /><br /><br />
+			</ul>
+			<div class="pricing_btn">
+				<span class="label">div.pricing_btn</span>
+			</div>
+		</li>
+		<li class="price_block" style="opacity: 0.5;">
+			<span class="label">li.price_block</span>
+			<h3><span class="label">h3</span></h3>
+			<div class="price">
+				<span class="label">div.price</span>
+				<div class="price_figure">
+					<span class="label">div.price_figure</span>
+					<span class="price_number">
+						<span class="label">span.price_number</span>
+					</span>
+					<span class="price_tenure">
+						<span class="label">span.price_tenure</span>
+					</span>
+				</div>
+			</div>
+			<ul class="features list-unstyled">
+				<li class="label">ul.features</li>
+				<br /><br /><br />
+			</ul>
+			<div class="footer">
+				<span class="label">div.pricing_btn</span>
+			</div>
+		</li>
+		<li class="price_block" style="opacity: 0.25;">
+			<span class="label">li.price_block</span>
+			<h3><span class="label">h3</span></h3>
+			<div class="price">
+				<span class="label">div.price</span>
+				<div class="price_figure">
+					<span class="label">div.price_figure</span>
+					<span class="price_number">
+						<span class="label">span.price_number</span>
+					</span>
+					<span class="price_tenure">
+						<span class="label">span.price_tenure</span>
+					</span>
+				</div>
+			</div>
+			<ul class="features list-unstyled">
+				<li class="label">ul.features</li>
+				<br /><br /><br />
+			</ul>
+			<div class="pricing_btn">
+				<span class="label">div.pricing_btn</span>
+			</div>
+		</li>
+		<div class="clear"></div>
+	</ul>
+	<div class="clear"></div>
+	</div><!-- end pricing2 -->
+	<div class="cursual"><!--  start cursual  -->
+		<h4>Teams train here<span class="line"></span></h4>
+	</div>
+	<div id="owl-demo" class="owl-carousel"><!----start-img-cursual---->
+		<div class="item">
+			<div class="cau_left">
+				<img class="lazyOwl" data-src="images/c1.png" alt="Lazy Owl Image">
+			</div>
+		</div>
+		<div class="item">
+			<div class="cau_left">
+				<img class="lazyOwl" data-src="images/c2.png" alt="Lazy Owl Image">
+			</div>
+		</div>
+		<div class="item">
+			<div class="cau_left">
+				<img class="lazyOwl" data-src="images/c3.png" alt="Lazy Owl Image">
+			</div>
+		</div>
+		<div class="item">
+			<div class="cau_left">
+				<img class="lazyOwl" data-src="images/c4.png" alt="Lazy Owl Image">
+			</div>
+		</div>
+		<div class="item">
+			<div class="cau_left">
+				<img class="lazyOwl" data-src="images/c1.png" alt="Lazy Owl Image">
+			</div>
+		</div>
+		<div class="item">
+			<div class="cau_left">
+				<img class="lazyOwl" data-src="images/c2.png" alt="Lazy Owl Image">
+			</div>
+		</div>
+		<div class="item">
+			<div class="cau_left">
+				<img class="lazyOwl" data-src="images/c3.png" alt="Lazy Owl Image">
+			</div>
+		</div>	
+		<div class="item">
+			<div class="cau_left">
+				<img class="lazyOwl" data-src="images/c4.png" alt="Lazy Owl Image">
+			</div>
+		</div>	
+		<div class="item">
+			<div class="cau_left">
+				<img class="lazyOwl" data-src="images/c1.png" alt="Lazy Owl Image">
+			</div>
+		</div>
+		<div class="item">
+			<div class="cau_left">
+				<img class="lazyOwl" data-src="images/c2.png" alt="Lazy Owl Image">
+			</div>
+		</div>
+		<div class="item">
+			<div class="cau_left">
+				<img class="lazyOwl" data-src="images/c3.png" alt="Lazy Owl Image">
+			</div>
+		</div>
+		<div class="item">
+			<div class="cau_left">
+				<img class="lazyOwl" data-src="images/c4.png" alt="Lazy Owl Image">
+			</div>
+		</div>
+	</div><!----//End-img-cursual---->
+</div>
+</div>
+<div class="footer_bg"><!-- start footer -->
+<div class="container">
+	<div class="footer">
+		<div class="col-md-4 footer1_of_3">
+			<div class="f_logo">
+				<a href="index.html"><img src="images/logo.png" alt="logo"/></a>
+			</div>		
+		</div>
+		<div class="col-md-4 footer1_of_3">
+			<h4>Opening Hours</h4>
+			<p> Monday to Friday: <br> 12–1:30pm, 5–9pm <br> Saturday: <br> 11am–1:30pm <br> Sunday: Closed </p>
+		</div>
+		<div class="col-md-4 footer1_of_3">
+			<h4>Contact Us</h4>
+			<p>Phone:&nbsp;<span>(65) 92345522</span></p>
+			<span class="">Email:&nbsp;<a href="mailto:support@ironfitnesssingapore.com.sg">support@ironfitnesssingapore.com.sg</a></span>
+		</div>
+		<div class="clearfix"></div>
+	</div>
+</div>
+</div>
+<div class="footer1_bg"><!-- start footer1 -->
+<div class="container">
+	<div class="footer1">
+		<div class="copy pull-left">
+		</div>
+		<div class="soc_icons pull-left">
+			<ul class="list-unstyled text-center">
+				<li><a href="https://www.facebook.com/ironfitnesssingapore.sg/"><i class="fa fa-facebook"></i></a></li>
+				<li><a href="https://www.instagram.com/ironfitness.sg/?hl=en"><i class="fa fa-instagram"></i></a></li>
+			</ul>
+		</div>
+		<div class="clearfix"></div>
+	</div>
+</div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,346 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Programme</title>
+<!-- Bootstrap -->
+<link href="css/bootstrap.min.css" rel='stylesheet' type='text/css' />
+<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<link href="css/blue.css" rel="stylesheet" type="text/css" media="all" />
+<!----font-Awesome----->
+   	<link rel="stylesheet" href="fonts/css/font-awesome.min.css">
+<!----font-Awesome----->
+<!-- start plugins -->
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<!-- Owl Carousel Assets -->
+<link href="css/owl.carousel.css" rel="stylesheet">
+<script src="js/owl.carousel.js"></script>
+		<script>
+			$(document).ready(function() {
+
+				$("#owl-demo").owlCarousel({
+					items : 4,
+					lazyLoad : true,
+					autoPlay : true,
+					navigation : true,
+					navigationText : ["", ""],
+					rewindNav : false,
+					scrollPerPage : false,
+					pagination : false,
+					paginationNumbers : false,
+				});
+
+			});
+		</script>
+		<!-- //Owl Carousel Assets -->
+<!-- start circle -->
+<script>
+(function($){
+	$.fn.percentPie = function(options){
+
+		var settings = $.extend({
+			width: 100,
+			trackColor: "EEEEEE",
+			barColor: "E2534B",
+			barWeight: 30,
+			startPercent: 0,
+			endPercent: 1,
+			fps: 60
+		}, options);
+
+		this.css({
+			width: settings.width,
+			height: settings.width
+		});
+
+		var	that = this,
+			hoverPolice = false,
+			canvasWidth = settings.width,
+			canvasHeight = canvasWidth,
+			id = $('canvas').length,
+			canvasElement = $('<canvas id="'+ id +'" width="' + canvasWidth + '" height="' + canvasHeight + '"></canvas>'),
+			canvas = canvasElement.get(0).getContext("2d"),
+			centerX = canvasWidth/2,
+			centerY = canvasHeight/2,
+			radius = settings.width/2 - settings.barWeight/2;
+			counterClockwise = false,
+			fps = 1000 / settings.fps,
+			update = .01;
+			this.angle = settings.startPercent;
+
+		this.drawArc = function(startAngle, percentFilled, color){
+			var drawingArc = true;
+			canvas.beginPath();
+			canvas.arc(centerX, centerY, radius, (Math.PI/180)*(startAngle * 360 - 90), (Math.PI/180)*(percentFilled * 360 - 90), counterClockwise);
+			canvas.strokeStyle = color;
+			canvas.lineWidth = settings.barWeight;
+			canvas.stroke();
+			drawingArc = false;
+		}
+
+		this.fillChart = function(stop){
+			var loop = setInterval(function(){
+				hoverPolice = true;
+				canvas.clearRect(0, 0, canvasWidth, canvasHeight);
+
+				that.drawArc(0, 360, settings.trackColor);
+				that.angle += update;
+				that.drawArc(settings.startPercent, that.angle, settings.barColor);
+
+				if(that.angle > stop){
+					clearInterval(loop);
+					hoverPolice = false;
+				}
+			}, fps);
+		}
+
+		this.mouseover(function(){
+			if(hoverPolice == false){
+				that.angle = settings.startPercent;
+				that.fillChart(settings.endPercent);
+			}
+		});
+
+		this.fillChart(settings.endPercent);
+		this.append(canvasElement);
+		return this;
+	}
+}(jQuery));
+
+$(document).ready(function() {
+
+	$('.google').percentPie({
+		width: 100,
+		trackColor: "E2534B",
+		barColor: "76C7C0",
+		barWeight: 20,
+		endPercent: .9,
+		fps: 60
+	});
+  
+  $('.moz').percentPie({
+		width: 100,
+		trackColor: "E2534B",
+		barColor: "76C7C0",
+		barWeight: 20,
+		endPercent: .75,
+		fps: 60
+	});
+  
+  $('.safari').percentPie({
+		width: 100,
+		trackColor: "E2534B",
+		barColor: "#76C7C0",
+		barWeight: 20,
+		endPercent: .5,
+		fps: 60
+	});
+    
+});
+</script>
+</head>
+<body>
+<div class="header_bg">
+<div class="container">
+	<div class="header">
+		<div class="logo">
+			<a href="index.html"><img src="images/logo.png" alt=""/></a>
+		</div>
+		<div class="h_menu">
+		<a id="touch-menu" class="mobile-menu" href="#">Menu</a>
+		<nav>
+		<ul class="menu list-unstyled">
+			<li><a href="index.html">HOME</a></li>
+			<li class="activate"><a href="programme.html">PROGRAMME</a></li>
+			<li><a href="membership.html">MEMBERSHIP</a></li>
+			<li><a href="contact.html">CONTACT</a>
+		</ul>
+		</nav>
+		<script src="js/menu.js" type="text/javascript"></script>
+		</div>
+		<div class="clearfix"></div>
+	</div>
+</div>
+<div class="main_bg"><!-- start main -->
+<div class="container">
+	<div class="main_grid1">
+		<h3 class="style pull-left">Some of the programmes we have</h3>
+		<ol class="breadcrumb pull-right">
+		  <li><a href="index.html">Home</a></li>
+		  <li class="active">Programme</li>
+		</ol>
+		<div class="clearfix"></div>
+	</div>
+</div>
+</div>
+<div class="main_bg"><!-- start main -->
+<div class="container">
+	<div class="technology">
+		<div class="technology_main">
+			<div class="technology_list col-md-6">
+				<h4>1.Cardio Class: BURN IT IN</h4>
+				<div class="tech_para">
+					<p class="para">Spending as much time as possible in your optimum training zone for burning calories and fat, this session focusses on using only your bodyweight in varying styles of High Intensity Interval Training (HIIT) including Tabata (eight rounds of 20-seconds-on, 10-seconds-off intervals). Expect to see side effects such as burning more calories for longer after your workout and generally feeling awesome!</p>
+				</div>
+				<div class="images_1_of_4 bg1 pull-right">
+					<span class="bg"><i class="fa fa-files-o"></i> </span>
+				</div>
+				<div class="clearfix"></div>
+				<div class="read_btn">
+					<a href="single-page.html" class="btn">Read more (FAQ)</a>
+				</div>	
+			</div>
+			<div class="technology_list col-md-6">
+				<h4>2. Sculpt & Tone: BODY TONE CLASS </h4>
+				<div class="tech_para">
+					<p class="para">If you're looking to give your body a top-to-toe workout to some great music, this is the class for you. The exercises involve completing reps using a choice of weights and are designed to boost your metabolism and burn body fat. This class varies from week to week to keep your body on its toes and ensure you continue to condition, tone and sculpt your whole body.</p>
+				</div>
+				<div class="images_1_of_4 bg1">
+					<span class="bg"><i class="fa fa-laptop"></i> </span>
+				</div>
+				<div class="clearfix"></div>
+				<div class="read_btn">
+					<a href="single-page.html" class="btn">Read more (FAQ)</a>
+				</div>	
+			</div>
+			<div class="clearfix"></div>	
+		</div>
+		<div class="technology_main">
+			<div class="technology_list col-md-6">
+				<h4>3. Mind & Body: YOGA CLASS</h4>
+				<div class="tech_para">
+					<p class="para">Experience mind and body connection through a series of disciplined physical postures, breathing exercises and relaxation. You’ll be increasing flexibility and balancing all parts of the body through this strengthening workout. Yoga can help reduce stress levels and improve overall health.</p>
+				</div>
+				<div class="images_1_of_4 bg1">
+					<span class="bg"><i class="fa fa-laptop"></i> </span>
+				</div>
+				<div class="clearfix"></div>
+				<div class="read_btn">
+					<a href="single-page.html" class="btn">Read more (FAQ)</a>
+				</div>	
+			</div>
+			<div class="technology_list col-md-6">
+				<h4>4. Functional:STRENGTH CLASS</h4>
+				<div class="tech_para">
+					<p class="para">This class is designed to develop your full body STRENGTH! Each class includes 8 strength exercises with perfect form and control to hit the whole body. Plus, we always end with a finisher exercise to make sure you leave with those post-workout endorphins rushing round your body! </p>
+				</div>
+				<div class="images_1_of_4 bg1 pull-right">
+					<span class="bg"><i class="fa fa-files-o"></i> </span>
+				</div>
+				<div class="clearfix"></div>
+				<div class="read_btn">
+					<a href="single-page.html" class="btn">Read more (FAQ)</a>
+				</div>	
+			</div>
+			<div class="clearfix"></div>
+	</div>
+</div>
+	<div class="cursual"><!--  start cursual  -->
+		<h4>Teams train here<span class="line"></span></h4>
+	</div>
+	<div id="owl-demo" class="owl-carousel"><!----start-img-cursual---->
+		<div class="item">
+			<div class="cau_left">
+				<img class="lazyOwl" data-src="images/c1.png" alt="Singapore Canoe Polo">
+			</div>
+		</div>
+		<div class="item">
+			<div class="cau_left">
+				<img class="lazyOwl" data-src="images/c2.png" alt="Urban Sports Club">
+			</div>
+		</div>
+		<div class="item">
+			<div class="cau_left">
+				<img class="lazyOwl" data-src="images/c3.png" alt="Taoli Swimming Club">
+			</div>
+		</div>
+		<div class="item">
+			<div class="cau_left">
+				<img class="lazyOwl" data-src="images/c4.png" alt="Chinese Swimming Club">
+			</div>
+		</div>
+		<div class="item">
+			<div class="cau_left">
+				<img class="lazyOwl" data-src="images/c1.png" alt="Singapore Canoe Polo">
+			</div>
+		</div>
+		<div class="item">
+			<div class="cau_left">
+				<img class="lazyOwl" data-src="images/c2.png" alt="Urban Sports Club">
+			</div>
+		</div>
+		<div class="item">
+			<div class="cau_left">
+				<img class="lazyOwl" data-src="images/c3.png" alt="Taoli Swimming Club">
+			</div>
+		</div>	
+		<div class="item">
+			<div class="cau_left">
+				<img class="lazyOwl" data-src="images/c4.png" alt="Chinese Swimming Club">
+			</div>
+		</div>	
+		<div class="item">
+			<div class="cau_left">
+				<img class="lazyOwl" data-src="images/c1.png" alt="Singapore Canoe Polo">
+			</div>
+		</div>
+		<div class="item">
+			<div class="cau_left">
+				<img class="lazyOwl" data-src="images/c2.png" alt="Urban Sports Club">
+			</div>
+		</div>
+		<div class="item">
+			<div class="cau_left">
+				<img class="lazyOwl" data-src="images/c3.png" alt="Taoli Swimming Club">
+			</div>
+		</div>
+		<div class="item">
+			<div class="cau_left">
+				<img class="lazyOwl" data-src="images/c4.png" alt="Chinese Swimming Club">
+			</div>
+	</div><!----//End-img-cursual---->
+	</div>
+</div>
+</div>
+<div class="footer_bg"><!-- start footer -->
+<div class="container">
+	<div class="footer">
+		<div class="col-md-4 footer1_of_3">
+			<div class="f_logo">
+				<a href="index.html"><img src="images/logo.png" alt="logo"/></a>
+			</div>		
+		</div>
+		<div class="col-md-4 footer1_of_3">
+			<h4>Opening Hours</h4>
+			<p> Monday to Friday: <br> 12–1:30pm, 5–9pm <br> Saturday: <br> 11am–1:30pm <br> Sunday: Closed </p>
+		</div>
+		<div class="col-md-4 footer1_of_3">
+			<h4>Contact Us</h4>
+			<p>Phone:&nbsp;<span>(65) 92345522</span></p>
+			<span class="">Email:&nbsp;<a href="mailto:support@ironfitnesssingapore.com.sg">support@ironfitnesssingapore.com.sg</a></span>
+		</div>
+		<div class="clearfix"></div>
+	</div>
+</div>
+</div>
+<div class="footer1_bg"><!-- start footer1 -->
+<div class="container">
+	<div class="footer1">
+		<div class="copy pull-left">
+		</div>
+		<div class="soc_icons pull-left">
+			<ul class="list-unstyled text-center">
+				<li><a href="https://www.facebook.com/ironfitnesssingapore.sg/"><i class="fa fa-facebook"></i></a></li>
+				<li><a href="https://www.instagram.com/ironfitness.sg/?hl=en"><i class="fa fa-instagram"></i></a></li>
+			</ul>
+		</div>
+		<div class="clearfix"></div>
+	</div>
+</div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,234 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Services</title>
+<!-- Bootstrap -->
+<link href="css/bootstrap.min.css" rel='stylesheet' type='text/css' />
+<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<link href="css/blue.css" rel="stylesheet" type="text/css" media="all" />
+<!----font-Awesome----->
+   	<link rel="stylesheet" href="fonts/css/font-awesome.min.css">
+<!----font-Awesome----->
+<!-- start plugins -->
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<!-- Owl Carousel Assets -->
+<link href="css/owl.carousel.css" rel="stylesheet">
+<script src="js/owl.carousel.js"></script>
+		<script>
+			$(document).ready(function() {
+
+				$("#owl-demo").owlCarousel({
+					items : 4,
+					lazyLoad : true,
+					autoPlay : true,
+					navigation : true,
+					navigationText : ["", ""],
+					rewindNav : false,
+					scrollPerPage : false,
+					pagination : false,
+					paginationNumbers : false,
+				});
+
+			});
+		</script>
+		<!-- //Owl Carousel Assets -->
+<!-- start circle -->
+<script>
+(function($){
+	$.fn.percentPie = function(options){
+
+		var settings = $.extend({
+			width: 100,
+			trackColor: "EEEEEE",
+			barColor: "E2534B",
+			barWeight: 30,
+			startPercent: 0,
+			endPercent: 1,
+			fps: 60
+		}, options);
+
+		this.css({
+			width: settings.width,
+			height: settings.width
+		});
+
+		var	that = this,
+			hoverPolice = false,
+			canvasWidth = settings.width,
+			canvasHeight = canvasWidth,
+			id = $('canvas').length,
+			canvasElement = $('<canvas id="'+ id +'" width="' + canvasWidth + '" height="' + canvasHeight + '"></canvas>'),
+			canvas = canvasElement.get(0).getContext("2d"),
+			centerX = canvasWidth/2,
+			centerY = canvasHeight/2,
+			radius = settings.width/2 - settings.barWeight/2;
+			counterClockwise = false,
+			fps = 1000 / settings.fps,
+			update = .01;
+			this.angle = settings.startPercent;
+
+		this.drawArc = function(startAngle, percentFilled, color){
+			var drawingArc = true;
+			canvas.beginPath();
+			canvas.arc(centerX, centerY, radius, (Math.PI/180)*(startAngle * 360 - 90), (Math.PI/180)*(percentFilled * 360 - 90), counterClockwise);
+			canvas.strokeStyle = color;
+			canvas.lineWidth = settings.barWeight;
+			canvas.stroke();
+			drawingArc = false;
+		}
+
+		this.fillChart = function(stop){
+			var loop = setInterval(function(){
+				hoverPolice = true;
+				canvas.clearRect(0, 0, canvasWidth, canvasHeight);
+
+				that.drawArc(0, 360, settings.trackColor);
+				that.angle += update;
+				that.drawArc(settings.startPercent, that.angle, settings.barColor);
+
+				if(that.angle > stop){
+					clearInterval(loop);
+					hoverPolice = false;
+				}
+			}, fps);
+		}
+
+		this.mouseover(function(){
+			if(hoverPolice == false){
+				that.angle = settings.startPercent;
+				that.fillChart(settings.endPercent);
+			}
+		});
+
+		this.fillChart(settings.endPercent);
+		this.append(canvasElement);
+		return this;
+	}
+}(jQuery));
+
+$(document).ready(function() {
+
+	$('.google').percentPie({
+		width: 100,
+		trackColor: "E2534B",
+		barColor: "76C7C0",
+		barWeight: 20,
+		endPercent: .9,
+		fps: 60
+	});
+  
+  $('.moz').percentPie({
+		width: 100,
+		trackColor: "E2534B",
+		barColor: "76C7C0",
+		barWeight: 20,
+		endPercent: .75,
+		fps: 60
+	});
+  
+  $('.safari').percentPie({
+		width: 100,
+		trackColor: "E2534B",
+		barColor: "#76C7C0",
+		barWeight: 20,
+		endPercent: .5,
+		fps: 60
+	});
+    
+});
+</script>
+</head>
+<body>
+<div class="header_bg">
+<div class="container">
+	<div class="header">
+		<div class="logo">
+			<a href="index.html"><img src="images/logo.png" alt=""/></a>
+		</div>
+		<div class="h_menu">
+		<a id="touch-menu" class="mobile-menu" href="#">Menu</a>
+		<nav>
+		<ul class="menu list-unstyled">
+			<li><a href="index.html">HOME</a></li>
+			<li class="activate"><a href="programme.html">PROGRAMME</a></li>
+			<li><a href="membership.html">MEMBERSHIP</a></li>
+			<li><a href="contact.html">CONTACT</a></li>
+		</ul>
+		</nav>
+		<script src="js/menu.js" type="text/javascript"></script>
+		</div>
+		<div class="clearfix"></div>
+	</div>
+</div>
+<div class="main_bg"><!-- start main -->
+<div class="container">
+	<div class="main_grid1">
+		<h3 class="style pull-left">FREQUENTLY ASKED QUESTIONS</h3>
+		<ol class="breadcrumb pull-right">
+		  <li><a href="index.html">Home</a></li>
+		  <li class="active">FAQ</li>
+		</ol>
+		<div class="clearfix"></div>
+	</div>
+</div>
+</div>
+<div class="main_btm1"><!-- start main_btm -->
+<div class="container">
+		<div class="details">
+			<h2>HOW TO BOOK A CLASS?</h2>
+			<p class="para">It’s so easy to book classes on the Iron Fitness App or on our website by simply selecting your chosen gym, viewing the class timetable and finding a class and time that suits you!If you are new to classes, let your instructor know when you arrive, and they will help you get started – all of our classes cater for all abilities, so you can work at your own pace.</p>
+			<h2>WHAT TO WEAR?</h2>
+			<p class="para">Come dressed in comfortable, breathable non-restrictive clothing – remember, our classes will get you moving! Don’t forget to bring a towel to freshen up and a water bottle to hydrate (we have water fountains in every gym to refill any reusable water bottle).</p>
+			<h2>CAN I BRING A GUEST TO THE GYM?</h2>
+			<p class="para">Absolutely! We understand that one of the best ways to stay with a healthy lifestyle is to train with a buddy. You can bring a friend for a one-time visit only. If you wish to do so, you must book them in. You can do this by speaking to one of our coach.</p>
+			<h2>CAN I BRING MY CHILDREN TO THE GYM?</h2>
+			<p class="para">No. For the safety of the children and members, children are not allowed into the club except on special occasions where we organise children’s classes/specials.</p>	
+			<br><br><p class="para"> If you have any further questions or enquiries, please do not hesitate to contact us!
+			<img src="images/det_pic.jpg" alt="" class="img-responsive"/>
+	</div>
+</div>
+</div>
+
+<div class="footer_bg"><!-- start footer -->
+<div class="container">
+	<div class="footer">
+		<div class="col-md-4 footer1_of_3">
+			<div class="f_logo">
+				<a href="index.html"><img src="images/logo.png" alt="logo"/></a>
+			</div>		
+		</div>
+		<div class="col-md-4 footer1_of_3">
+			<h4>Opening Hours</h4>
+			<p> Monday to Friday: <br> 12–1:30pm, 5–9pm <br> Saturday: <br> 11am–1:30pm <br> Sunday: Closed </p>
+		</div>
+		<div class="col-md-4 footer1_of_3">
+			<h4>Contact Us</h4>
+			<p>Phone:&nbsp;<span>(65) 92345522</span></p>
+			<span class="">Email:&nbsp;<a href="mailto:support@ironfitnesssingapore.com.sg">support@ironfitnesssingapore.com.sg</a></span>
+		</div>
+		<div class="clearfix"></div>
+	</div>
+</div>
+</div>
+<div class="footer1_bg"><!-- start footer1 -->
+<div class="container">
+	<div class="footer1">
+		<div class="copy pull-left">
+		</div>
+		<div class="soc_icons pull-left">
+			<ul class="list-unstyled text-center">
+				<li><a href="https://www.facebook.com/ironfitnesssingapore.sg/"><i class="fa fa-facebook"></i></a></li>
+				<li><a href="https://www.instagram.com/ironfitness.sg/?hl=en"><i class="fa fa-instagram"></i></a></li>
+			</ul>
+		</div>
+		<div class="clearfix"></div>
+	</div>
+</div>
+</div>
+
+</body>
+</html>
